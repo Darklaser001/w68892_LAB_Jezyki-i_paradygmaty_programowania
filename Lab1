@@ -1,0 +1,129 @@
+# zad 1
+def dividePackages(packageList, maxWeight):
+    for package in packageList:
+        if(package > maxWeight):
+            print("W liście jest paczka przekraczająca dozwoloną wagę!")
+            return
+    packageList = sorted(packageList, reverse = True)
+    packageListCourse = []
+    course = 1
+    while(len(packageList) > 0):
+        listLen = len(packageList)
+        for index in range(listLen):
+            if(sum(packageListCourse) + packageList[index] <= maxWeight):
+                packageListCourse.append(packageList[index])
+        print("Kurs:",course,". Paczki:",packageListCourse)
+        for item in packageListCourse:
+            if item in packageList:
+                packageList.remove(item)
+        course += 1
+        packageListCourse = []
+    
+        
+print("zad 1")
+dividePackages([1, 4, 15, 4, 9, 12, 22, 3, 7], 25)
+
+# zad 2
+def bfs(graph, start, end):
+    visited = []
+    queue = [start]
+    
+    def bfs_recursive(graph, visited, queue, end):
+        
+        if not queue:
+            return []
+            
+        node = queue.pop(0)
+        
+        if(node not in visited):
+            visited.append(node)
+        
+        for nodes in graph[node]:
+            if(nodes == end):
+                return [node] + [nodes]
+            if(nodes not in visited):
+                visited.append(nodes)
+                queue.append(nodes)
+
+        result = bfs_recursive(graph, visited, queue, end)
+        
+        for nodes in graph[node]:
+            if(nodes == result[0] and len(result) > 0):
+                    return [node] + result
+        return result
+        
+        
+    return bfs_recursive(graph, visited, queue, end)
+
+            
+
+graph = { # Wygenerowany automatycznie (dla sprawdzenia grafów większego rozmiaru oryginalny był dużo mniejszy podany poniżej)
+    0: [1, 2, 3],
+    1: [0, 4, 5],
+    2: [0, 3, 6],
+    3: [0, 2, 7],
+    4: [1, 5, 8],
+    5: [1, 4, 9],
+    6: [2, 7, 10],
+    7: [3, 6, 11],
+    8: [4, 9],
+    9: [5, 8, 10],
+    10: [6, 9, 11],
+    11: [7, 10]
+} 
+
+print("zad 2", bfs(graph, 11, 4))
+
+# graph = {
+#     0: [1, 2, 3],
+#     1: [0, 4],
+#     2: [0, 3],
+#     3: [0, 2],
+#     4: [1, 3]
+# }
+
+# zad 3
+def functional(tasksList):
+
+    def worth(task):
+        taskTime, taskReward = task
+        return taskTime / taskReward
+
+    sorted_tasks = sorted(tasksList, key=worth)
+    
+    sumTime = 0
+    for task in tasksList:
+        sumTime += task[0]
+        
+    return sorted_tasks, sumTime
+    
+def procedural(tasksList):
+    countTaskList = len(tasksList)
+    
+    for tasksSorted in range(countTaskList):
+        for task in range(tasksSorted):
+            if(tasksList[task][0] / tasksList[task][1] > tasksList[tasksSorted][0] / tasksList[tasksSorted][1]):
+                tasksList[tasksSorted], tasksList[task] = tasksList[task], tasksList[tasksSorted]
+    
+    sumTime = 0
+    for task in tasksList:
+        sumTime += task[0]
+        
+    return tasksList, sumTime
+        
+
+
+tasksListOriginal = [ # najpierw zapisana ilość czasu (np min) potrzebnych na zrobienie zadania a potem ilość pkt (nagroda) którą otrzymam za wykonanie zadania.
+    (5, 10),
+    (2, 15),
+    (4, 5),
+    (2, 15),
+    (1, 20), # skrajnie opłacalna
+    (20, 1), # skrajnie nieopłacalna
+]
+
+resultFunctional = functional(tasksListOriginal)
+resultProcedural = procedural(tasksListOriginal)
+print("zad 3:")
+print("posortowana kolejność zadań funkcjonalnie:", resultFunctional[0], "łączny czas zadań:", resultFunctional[1])
+print("posortowana kolejność zadań proceduralnie:", resultProcedural[0], "łączny czas zadań:", resultProcedural[1])
