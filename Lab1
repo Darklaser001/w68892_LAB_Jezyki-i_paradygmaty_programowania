@@ -127,3 +127,19 @@ resultProcedural = procedural(tasksListOriginal)
 print("zad 3:")
 print("posortowana kolejność zadań funkcjonalnie:", resultFunctional[0], "łączny czas zadań:", resultFunctional[1])
 print("posortowana kolejność zadań proceduralnie:", resultProcedural[0], "łączny czas zadań:", resultProcedural[1])
+
+# zad 4
+def functional(items, currentBackpack, maxWeight):
+    if(len(items) < 0):
+        return currentBackpack
+    
+    currentWeight = sum(item[1] for item in currentBackpack)
+    for item in items:
+        (currentWeight + )
+    
+
+items = [ # na pierwszym miejscu waga na następnym wartość
+    [10, 60],
+    [20, 100],
+    [30, 120]
+    ]
