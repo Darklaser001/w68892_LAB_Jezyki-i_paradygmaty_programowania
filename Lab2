@@ -28,30 +28,30 @@ print(listC)
 # exec(text)
 #
 # print(eval("1+1"))
-from audioop import reverse
-from functools import reduce
+# from audioop import reverse
+# from functools import reduce
 
-text = """Zadanie 1. Analiza Tekstu i Transformacje Funkcyjne
-Napisz program, który przyjmuje długi tekst (np. artykuł, książkę) i wykonuje kilka złożonych operacji analizy tekstu:
-• Zlicza liczbę słów, zdań, i akapitów w tekście.
-• Wyszukuje najczęściej występujące słowa, wykluczając tzw. stop words (np. "i", "a", "the").
-• Transformuje wszystkie wyrazy rozpoczynające się na literę "a" lub "A" do ich odwrotności (np. "apple" → "elppa").
-Wskazówka: Użyj map(), filter(), i list składanych, aby przeprowadzać transformacje na tekście. a i o u"""
+# text = """Zadanie 1. Analiza Tekstu i Transformacje Funkcyjne
+# Napisz program, który przyjmuje długi tekst (np. artykuł, książkę) i wykonuje kilka złożonych operacji analizy tekstu:
+# • Zlicza liczbę słów, zdań, i akapitów w tekście.
+# • Wyszukuje najczęściej występujące słowa, wykluczając tzw. stop words (np. "i", "a", "the").
+# • Transformuje wszystkie wyrazy rozpoczynające się na literę "a" lub "A" do ich odwrotności (np. "apple" → "elppa").
+# Wskazówka: Użyj map(), filter(), i list składanych, aby przeprowadzać transformacje na tekście. a i o u"""
 
-dots = len(list(filter(lambda x: x == '.', text)))
-print("Ile jest kropek:",dots)
+# dots = len(list(filter(lambda x: x == '.', text)))
+# print("Ile jest kropek:",dots)
 
-sentences = len(list(filter(lambda x: x == '.' or x == '!' or x == '?', text)))
-print("Ile jest zdan:",sentences)
+# sentences = len(list(filter(lambda x: x == '.' or x == '!' or x == '?', text)))
+# print("Ile jest zdan:",sentences)
 
-paragraphs = len(list(filter(lambda  x: x == "\n", text)))
-print("Ile jest paragrafów:",paragraphs)
+# paragraphs = len(list(filter(lambda  x: x == "\n", text)))
+# print("Ile jest paragrafów:",paragraphs)
 
-stopWords = ['z', 'w', 'u', 'o', 'i' ,'a']
-newText = list(filter(lambda x: x not in stopWords, text.strip().split()))
-listTst = list(map(lambda x: newText.count(x), newText))
+# stopWords = ['z', 'w', 'u', 'o', 'i' ,'a']
+# newText = list(filter(lambda x: x not in stopWords, text.strip().split()))
+# listTst = list(map(lambda x: newText.count(x), newText))
 
-print("Najczęściej w tekście wystepuję:", newText[listTst.index(max(listTst))],"\nIlość wystąpień:",max(listTst))
+# print("Najczęściej w tekście wystepuję:", newText[listTst.index(max(listTst))],"\nIlość wystąpień:",max(listTst))
 
-newText = str(list([x [::-1] for x in newText if x[0] == 'a' or x[0] == 'A']))
-print(newText)
+# newText = str(list([x [::-1] for x in newText if x[0] == 'a' or x[0] == 'A']))
+# print("Odwrócenie słów z literą 'A' lub 'a' na początku",newText)
