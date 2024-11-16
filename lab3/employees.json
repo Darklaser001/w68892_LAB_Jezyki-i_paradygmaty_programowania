@@ -1,0 +1,43 @@
+{
+    "managers": [
+        {
+            "name": "Andrzej",
+            "age": 70,
+            "salary": 120,
+            "employees": [
+                {
+                    "name": "Zbychu",
+                    "age": 52,
+                    "salary": 70
+                },
+                {
+                    "name": "Janusz",
+                    "age": 70,
+                    "salary": 80
+                },
+                {
+                    "name": "Janek",
+                    "age": 20,
+                    "salary": 30
+                }
+            ]
+        },
+        {
+            "name": "Aneta",
+            "age": 45,
+            "salary": 120,
+            "employees": [
+                {
+                    "name": "Magda",
+                    "age": 30,
+                    "salary": 50
+                },
+                {
+                    "name": "Piotr",
+                    "age": 25,
+                    "salary": 65
+                }
+            ]
+        }
+    ]
+}

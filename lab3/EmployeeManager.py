@@ -1,21 +1,19 @@
-from idlelib.filelist import FileList
 
 from Employee import Employee
 
 class EmployeeManager(Employee):
-
-    listOfEmployees = []
-
     def __init__(self, name, age, salary):
         super().__init__(name, age, salary)
+        self.listOfEmployees = []
 
     def AddEmployee(self, name, age, salary):
         tmpEmployee = Employee(name, age, salary)
         self.listOfEmployees.append(tmpEmployee)
 
     def ShowEmployees(self):
-        for Employee in self.listOfEmployees:
-            print(Employee.view())
+        for employee in self.listOfEmployees:
+            print(employee.view())
+
 
     def DeleteEmployees(self, ageStart = -1, ageEnd = 999):
         if ageStart == ageEnd == -1:
@@ -38,4 +36,8 @@ class EmployeeManager(Employee):
         print("Po aktualizacji")
         employeeSearched.setSalary(salary)
         print(employeeSearched.view())
+
+    
+    def view(self):
+        return f"Imię: \t{self.name}, wiek: \t{self.age}, salary \t{self.salary}"
 
