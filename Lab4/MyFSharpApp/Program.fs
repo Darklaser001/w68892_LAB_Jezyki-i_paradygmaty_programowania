@@ -1,4 +1,4 @@
-﻿// For more information see https://aka.ms/fsharp-console-apps
+// For more information see https://aka.ms/fsharp-console-apps
 // printfn "Hello from F#"
 
 
@@ -85,14 +85,34 @@
 // printfn "Suma liczb od 1 do 5= %d" (suma 5)
 
 
-let tablica = [|10;20;30|]
-for i = 0 to tablica.Length - 1 do
-    printfn "element %d: %d" i tablica[i]
+// let tablica = [|10;20;30|]
+// for i = 0 to tablica.Length - 1 do
+//     printfn "element %d: %d" i tablica[i]
 
 
-//// rekurencja ogonowa n = 5 suma = suma + n
-let sumRekTail n =
-    let rec loop n acc = 
-        if n <= 0 then acc
-        else loop (n-1) (acc+n) //rekurencja ogonowa
-    loop n 0 // wywołanie funkcji pomocniczej
+// //// rekurencja ogonowa n = 5 suma = suma + n
+// let sumRekTail n =
+//     let rec loop n acc = 
+//         if n <= 0 then acc
+//         else loop (n-1) (acc+n) //rekurencja ogonowa
+//     loop n 0 // wywołanie funkcji pomocniczej
+
+
+//// Zad1
+// printfn "podaj wzrost: "
+// let wzrost = System.Double.Parse(System.Console.ReadLine()) / 100.0
+// printfn "podaj wagę: "
+// let waga = System.Double.Parse(System.Console.ReadLine())
+// let BMI = (waga) / (wzrost * wzrost)
+// printfn "Twje BMI wynosi: %.2f" BMI
+
+
+
+// //Zad2
+// printfn "Podaj jaką kwote chcesz przeliczyć: "
+// let kwota = System.Double.Parse(System.Console.ReadLine())
+// let curreny = [|4.3; 5.2; 3.3|]
+// printfn "Podaj na jaką walutę chcesz konwertować (USD, EUR, GBP): "
+// let waluta = System.Console.ReadLine()
+// if waluta = "USD" || waluta = "usd" then
+//     printfn "Po konwersji będziesz mieć %f USD" kwota / curreny[0]
